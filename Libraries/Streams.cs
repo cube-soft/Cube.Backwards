@@ -15,7 +15,7 @@
 /// limitations under the License.
 ///
 /* ------------------------------------------------------------------------- */
-using IoEx = System.IO;
+using System.IO;
 
 namespace Cube.Streams
 {
@@ -28,7 +28,7 @@ namespace Cube.Streams
     /// </summary>
     /// 
     /// <remarks>
-    /// .NET Framework 4 以降に追加されたメソッドを拡張メソッドとして補完します。
+    /// .NET Framework 4 以降に追加されたメソッドを補完します。
     /// </remarks>
     ///
     /* --------------------------------------------------------------------- */
@@ -41,9 +41,12 @@ namespace Cube.Streams
         /// <summary>
         /// 別のストリームへ内容をコピーします。
         /// </summary>
+        /// 
+        /// <param name="src">コピー元ストリーム</param>
+        /// <param name="dest">コピー先ストリーム</param>
         ///
         /* ----------------------------------------------------------------- */
-        public static void CopyTo(this IoEx.Stream src, IoEx.Stream dest)
+        public static void CopyTo(this Stream src, Stream dest)
         {
             var buffer = new byte[16 * 1024];
             var result = 0;

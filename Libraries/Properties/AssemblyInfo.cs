@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("Cube.Backwards")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Libraries for using Cube.* in .NET Framework 3.5.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CubeSoft")]
 [assembly: AssemblyProduct("Cube.Backwards")]

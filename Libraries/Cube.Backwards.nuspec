@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Cube.Backwards</id>
-    <version>1.4.0.0</version>
+    <version>1.4.0</version>
     <authors>CubeSoft</authors>
     <description>Libraries for using Cube.* in .NET Framework 3.5.</description>
     <licenseUrl>https://github.com/cube-soft/Cube.Backwards/blob/master/License.txt</licenseUrl>
@@ -12,6 +12,10 @@
     <releaseNotes>Private release.</releaseNotes>
     <copyright>Copyright (c) 2010 CubeSoft, Inc.</copyright>
     <tags>Cube Windows .NET3.5</tags>
+    <dependencies>
+      <dependency id="AsyncBridge.Net35" version="0.2.0" />
+      <dependency id="TaskParallelLibrary" version="1.0.2856.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="bin\Release\Cube.Backwards.dll" target="lib\net35"/>

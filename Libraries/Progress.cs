@@ -21,6 +21,29 @@ namespace System
 {
     /* --------------------------------------------------------------------- */
     ///
+    /// System.IProgress(T)
+    /// 
+    /// <summary>
+    /// 進行状況の更新のプロバイダーを定義します。
+    /// </summary>
+    ///
+    /* --------------------------------------------------------------------- */
+    public interface IProgress<in T>
+    {
+        /* ----------------------------------------------------------------- */
+        ///
+        /// Report
+        /// 
+        /// <summary>
+        /// 進行状況の更新を報告します。
+        /// </summary>
+        ///
+        /* ----------------------------------------------------------------- */
+        void Report(T value);
+    }
+
+    /* --------------------------------------------------------------------- */
+    ///
     /// System.Progress(T)
     /// 
     /// <summary>
@@ -45,6 +68,22 @@ namespace System
         public Progress()
         {
             _context = SynchronizationContext.Current;
+        }
+
+        /* ----------------------------------------------------------------- */
+        ///
+        /// Progress
+        /// 
+        /// <summary>
+        /// オブジェクトを初期化します。
+        /// </summary>
+        /// 
+        /// <param name="callback">コールバック関数</param>
+        ///
+        /* ----------------------------------------------------------------- */
+        public Progress(Action<T> callback) : this()
+        {
+            ProgressChanged += (s, e) => callback(e);
         }
 
         #endregion
@@ -93,7 +132,8 @@ namespace System
         protected virtual void OnReport(T value)
         {
             if (ProgressChanged == null) return;
-            _context.Post(_ => ProgressChanged(this, value), null);
+            if (_context != null) _context.Post(_ => ProgressChanged(this, value), null);
+            else ProgressChanged(this, value);
         }
 
         #endregion

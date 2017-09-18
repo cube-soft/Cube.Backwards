@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations.cs" />
-    <Compile Include="IProgress.cs" />
     <Compile Include="IReadOnlyCollection.cs" />
     <Compile Include="Progress.cs" />
     <Compile Include="Registries.cs" />

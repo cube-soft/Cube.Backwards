@@ -1,0 +1,16 @@
+version: 1.4.0.{build}
+skip_tags: true
+clone_folder: C:\Cube\Cube.Backwards
+image: Visual Studio 2017
+nuget:
+    project_feed: true
+    disable_publish_on_pr: true
+platform: Any CPU
+configuration: Release
+before_build:
+    - nuget restore Cube.Backwards.sln
+build: 
+    parallel: true
+    project: Cube.Backwards.sln
+    publish_nuget: true
+    verbosity: normal

@@ -7,15 +7,11 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <copyright>$copyright$</copyright>
-    <description>Libraries for using Cube.* in .NET Framework 3.5.</description>
+    <description>Library for using Cube projects in .NET Framework 3.5.</description>
     <licenseUrl>https://github.com/cube-soft/Cube.Backwards/blob/master/License.txt</licenseUrl>
+    <iconUrl>https://github.com/cube-soft/Cube.Backwards/blob/master/Icon.png?raw=true</iconUrl>
     <projectUrl>https://github.com/cube-soft/Cube.Backwards</projectUrl>
-    <iconUrl>https://github.com/cube-soft/Cube.Backwards/blob/master/Icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>Private release.</releaseNotes>
-    <tags>Cube Windows .NET3.5</tags>
+    <tags>Cube .NET3.5</tags>
   </metadata>
-  <files>
-    <file src="bin\Release\Cube.Backwards.dll" target="lib\net35"/>
-  </files>
 </package>

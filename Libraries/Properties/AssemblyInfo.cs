@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("Cube.Backwards")]
-[assembly: AssemblyDescription("Libraries for using Cube.* in .NET Framework 3.5.")]
+[assembly: AssemblyDescription("Library for using Cube projects in .NET Framework 3.5.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CubeSoft")]
 [assembly: AssemblyProduct("Cube.Backwards")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.4.0.0")]
-[assembly: AssemblyFileVersion("1.4.0.0")]
+[assembly: AssemblyVersion("1.4.1.0")]
+[assembly: AssemblyFileVersion("1.4.1.0")]

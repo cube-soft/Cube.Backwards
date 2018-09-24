@@ -48,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enumerations.cs" />
-    <Compile Include="IReadOnlyCollection.cs" />
+    <Compile Include="Extensions\Enum.cs" />
+    <Compile Include="Collections\IReadOnlyCollection.cs" />
     <Compile Include="Progress.cs" />
-    <Compile Include="Registries.cs" />
-    <Compile Include="Streams.cs" />
+    <Compile Include="Extensions\Registry.cs" />
+    <Compile Include="Extensions\Stream.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

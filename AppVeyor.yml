@@ -1,5 +1,5 @@
 version: 1.6.0.{build}
-image: Visual Studio 2017
+image: Visual Studio 2019 Preview
 platform: Any CPU
 configuration: Release
 environment:
@@ -17,5 +17,10 @@ before_build:
 build:
     project: '%PROJECT_NAME%.sln'
     parallel: true
-    publish_nuget: true
+    publish_nuget: false
     verbosity: minimal
+after_build:
+    - nuget pack "Libraries\%PROJECT_NAME%.csproj" -Properties "Configuration=Release;Platform=AnyCPU"
+artifacts:
+    - path: '**\*.nupkg'
+      type: NuGetPackage

@@ -3,6 +3,7 @@ Cube.Backwards
 
 [![NuGet](https://img.shields.io/nuget/v/Cube.Backwards.svg)](https://www.nuget.org/packages/Cube.Backwards/)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/1h6tx4ubhcpnv144?svg=true)](https://ci.appveyor.com/project/clown/cube-backwards)
+[![Azure Pipelines](https://dev.azure.com/cube-soft-jp/Cube.Backwards/_apis/build/status/cube-soft.Cube.Backwards?branchName=master)](https://dev.azure.com/cube-soft-jp/Cube.Backwards/_build)
 
 Cube.Backwards is the Library for using the other Cube.* libraries in .NET Framework 3.5.
 Note that the library is not needed in .NET Framework 4.5 or higher.

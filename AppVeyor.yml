@@ -1,16 +1,21 @@
-version: 1.5.0.{build}
+version: 1.6.0.{build}
+image: Visual Studio 2019 Preview
+platform: Any CPU
+configuration: Release
+environment:
+    PROJECT_NAME: 'Cube.Backwards'
+branches:
+    only:
+        - master
 skip_tags: true
-clone_folder: C:\Cube\Cube.Backwards
-image: Visual Studio 2017
 nuget:
     project_feed: true
     disable_publish_on_pr: true
-platform: Any CPU
-configuration: Release
+clone_folder: 'C:\Cube\%PROJECT_NAME%'
 before_build:
-    - nuget restore Cube.Backwards.sln
+    - nuget restore "%PROJECT_NAME%.sln"
 build:
+    project: '%PROJECT_NAME%.sln'
     parallel: true
-    project: Cube.Backwards.sln
     publish_nuget: true
-    verbosity: normal
+    verbosity: minimal

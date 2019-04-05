@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <version>1.6.0</version>
+        <id>Cube.Backwards</id>
+        <title>Cube.Backwards</title>
+        <authors>clown;cube-soft</authors>
+        <owners>CubeSoft</owners>
+        <copyright>Copyright © 2010 CubeSoft, Inc.</copyright>
+        <description>Library for using Cube projects in .NET Framework 3.5.</description>
+        <tags>Cube;.NET Framework 3.5</tags>
+        <license type="expression">Apache-2.0</license>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <projectUrl>https://github.com/cube-soft/Cube.Backwards</projectUrl>
+        <iconUrl>https://github.com/cube-soft/Cube.Backwards/blob/master/Icon.png?raw=true</iconUrl>
+        <dependencies>
+            <dependency id="AsyncBridge" version="0.3.1" />
+            <dependency id="TaskParallelLibrary" version="1.0.2856.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Any CPU\Release\net35\Cube.Backwards.*" target="lib\net35" />
+    </files>
+</package>

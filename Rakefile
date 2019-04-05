@@ -50,7 +50,7 @@ desc "Pack nupkg in the master branch."
 task :pack do
     BRANCHES.each { |e| Rake::Task[:build].invoke(e) }
     sh("git checkout master")
-    sh("#{PACK} Libraries/#{PROJECT}.csproj")
+    sh("#{PACK} Libraries/#{PROJECT}.nuspec")
 end
 
 # --------------------------------------------------------------------------- #

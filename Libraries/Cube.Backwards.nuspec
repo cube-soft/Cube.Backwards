@@ -5,7 +5,7 @@
         <id>Cube.Backwards</id>
         <title>Cube.Backwards</title>
         <authors>clown,cube-soft</authors>
-        <owners>CubeSoft</owners>
+        <owners>clown,cube-soft</owners>
         <copyright>Copyright © 2010 CubeSoft, Inc.</copyright>
         <description>Library for using Cube projects in .NET Framework 3.5.</description>
         <tags>Cube .NET3.5</tags>

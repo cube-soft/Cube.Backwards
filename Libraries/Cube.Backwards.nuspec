@@ -4,11 +4,11 @@
         <version>1.6.0</version>
         <id>Cube.Backwards</id>
         <title>Cube.Backwards</title>
-        <authors>clown;cube-soft</authors>
+        <authors>clown,cube-soft</authors>
         <owners>CubeSoft</owners>
         <copyright>Copyright © 2010 CubeSoft, Inc.</copyright>
         <description>Library for using Cube projects in .NET Framework 3.5.</description>
-        <tags>Cube;.NET Framework 3.5</tags>
+        <tags>Cube .NET3.5</tags>
         <license type="expression">Apache-2.0</license>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <projectUrl>https://github.com/cube-soft/Cube.Backwards</projectUrl>

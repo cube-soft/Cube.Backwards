@@ -22,44 +22,59 @@ require 'rake/clean'
 # configuration
 # --------------------------------------------------------------------------- #
 PROJECT     = 'Cube.Backwards'
+LIBRARY     = '../packages'
+CONFIG      = 'Release'
 BRANCHES    = ['master']
+PLATFORMS   = ['Any CPU']
+PACKAGES    = ["Libraries/#{PROJECT}.nuspec"]
 
 # --------------------------------------------------------------------------- #
 # commands
 # --------------------------------------------------------------------------- #
-BUILD   = 'msbuild /t:Clean,Build /m /verbosity:minimal /p:Configuration=Release;Platform="Any CPU";GeneratePackageOnBuild=false'
-PACK    = 'nuget pack -Properties "Configuration=Release;Platform=AnyCPU"'
+BUILD = "msbuild -v:m -t:build -p:Configuration=#{CONFIG}"
+PACK  = %(nuget pack -Properties "Configuration=#{CONFIG};Platform=AnyCPU")
 
 # --------------------------------------------------------------------------- #
 # clean
 # --------------------------------------------------------------------------- #
 CLEAN.include("#{PROJECT}.*.nupkg")
-CLEAN.include("../packages/cube.*")
-CLEAN.include(%w{bin obj}.map{ |e| "**/#{e}" })
+CLEAN.include("#{LIBRARY}/cube.*")
+CLEAN.include(['bin', 'obj'].map{ |e| "**/#{e}" })
 
 # --------------------------------------------------------------------------- #
 # default
 # --------------------------------------------------------------------------- #
-desc "Clean objects and pack nupkg."
-task :default => [:clean, :pack]
+desc "Build the solution and create NuGet packages."
+task :default => [:clean_build, :pack]
 
 # --------------------------------------------------------------------------- #
 # pack
 # --------------------------------------------------------------------------- #
-desc "Pack nupkg in the master branch."
+desc "Create NuGet packages in the master branch."
 task :pack do
-    BRANCHES.each { |e| Rake::Task[:build].invoke(e) }
     sh("git checkout master")
-    sh("#{PACK} Libraries/#{PROJECT}.nuspec")
+    PACKAGES.each { |e| sh("#{PACK} #{e}") }
+end
+
+# --------------------------------------------------------------------------- #
+# clean_build
+# --------------------------------------------------------------------------- #
+desc "Clean objects and build the solution in pre-defined branches and platforms."
+task :clean_build => [:clean] do
+    BRANCHES.product(PLATFORMS).each { |e|
+        sh("git checkout #{e[0]}")
+        RakeFileUtils::rm_rf(FileList.new("#{LIBRARY}/cube.*"))
+        Rake::Task[:build].reenable
+        Rake::Task[:build].invoke(e[1])
+    }
 end
 
 # --------------------------------------------------------------------------- #
 # build
 # --------------------------------------------------------------------------- #
-desc "Build the solution in the specified branch."
-task :build, [:branch] do |_, e|
-    e.with_defaults(branch: '')
-    sh("git checkout #{e.branch}") if (!e.branch.empty?)
+desc "Build the solution in the current branch."
+task :build, [:platform] do |_, e|
+    e.with_defaults(:platform => PLATFORMS[0])
     sh("nuget restore #{PROJECT}.sln")
-    sh("#{BUILD} #{PROJECT}.sln")
+    sh(%(#{BUILD} -p:Platform="#{e.platform}" #{PROJECT}.sln))
 end
